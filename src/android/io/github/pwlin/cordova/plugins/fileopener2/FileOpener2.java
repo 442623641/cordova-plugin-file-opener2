@@ -111,6 +111,7 @@ public class FileOpener2 extends CordovaPlugin {
 					intent.setDataAndType(path, contentType);
 					intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 					intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+					intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);//不加此句安装成功后不会自动打开安装成功后界面
 					//intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
 				 	List<ResolveInfo> infoList = context.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
@@ -122,6 +123,7 @@ public class FileOpener2 extends CordovaPlugin {
 				else {
 					intent.setDataAndType(path, contentType);
 					intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+					intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);//不加此句安装成功后不会自动打开安装成功后界面
 				}
 				/*
 				 * @see
